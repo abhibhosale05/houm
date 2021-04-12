@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:padding="@dimen/dimen_16dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:text="Enter latitude and longitude of your location"
+        android:layout_gravity="center_horizontal"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edittext_rectangle_bg"
+        android:id="@+id/latitude_edittext"
+        android:paddingLeft="8dp"
+        android:inputType="numberDecimal"
+        android:hint="@string/str_latitude"
+        android:layout_height="60dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edittext_rectangle_bg"
+        android:id="@+id/longitude_edittext"
+        android:paddingLeft="8dp"
+        android:inputType="numberDecimal"
+        android:hint="@string/str_longitude"
+        android:layout_height="60dp" />
+
+    <Button
+        android:id="@+id/submit_button"
+        android:layout_width="match_parent"
+        android:text="@string/str_submit"
+        android:layout_marginTop="@dimen/dimen_16dp"
+        android:layout_height="60dp" />
+
+</LinearLayout>

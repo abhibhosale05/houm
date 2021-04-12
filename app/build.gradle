@@ -1,0 +1,105 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-android-extensions'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.1"
+
+    defaultConfig {
+        applicationId "com.houm.android.houmweather"
+        minSdkVersion 16
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    packagingOptions {
+        exclude "**/attach_hotspot_windows.dll"
+        exclude "META-INF/licenses/**"
+        exclude "META-INF/AL2.0"
+        exclude "META-INF/LGPL2.1"
+    }
+}
+
+dependencies {
+
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+
+    /*Kotlin dependency*/
+    implementation dependency.kotlin.runtime
+
+    /*Android SDK dependencies*/
+    implementation dependency.support.v4
+    implementation dependency.support.design
+    implementation dependency.support.kotlin
+    implementation dependency.support.appcompat
+    implementation dependency.support.constraint_layout
+    implementation dependency.support.multidex
+
+    /*Android architecture components dependencies*/
+    implementation dependency.room.runtime
+    kapt dependency.room.compiler
+    implementation dependency.room.ktx
+    implementation dependency.room.testing
+
+    /*Dagger HILT dependencies*/
+    implementation dependency.hilt.runtime
+    kapt dependency.hilt.compiler
+
+    /*Retrofit REST dependencies*/
+    implementation dependency.retrofit.gson
+    implementation dependency.retrofit.runtime
+    implementation dependency.retrofit.adapter
+
+    /*Http logging dependency*/
+    implementation dependency.okhttp.logging
+
+    /*Debugging dependency*/
+    debugImplementation dependency.debug.db
+
+    /*Unit test dependency*/
+    testImplementation dependency.test.junit
+    testImplementation dependency.coroutines.coroutines_test
+
+    /*Android test coroutine*/
+    androidTestImplementation dependency.coroutines.coroutines_test
+
+    /*Mockito dependencies*/
+    testImplementation dependency.mockito.core
+    androidTestImplementation dependency.mockito.android
+
+    /*Android testing support library dependencies*/
+    androidTestImplementation dependency.atsl.ext
+    androidTestImplementation dependency.atsl.room
+    androidTestImplementation dependency.atsl.rules
+    androidTestImplementation dependency.atsl.runner
+    androidTestImplementation dependency.atsl.espresso
+
+    /*Kotlin coroutine*/
+    implementation dependency.coroutines.core
+    implementation dependency.coroutines.android
+
+    /*Picasso dependency*/
+    implementation dependency.picasso.runtime
+
+}
